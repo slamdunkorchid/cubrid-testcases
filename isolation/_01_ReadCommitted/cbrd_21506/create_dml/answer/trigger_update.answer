@@ -1,0 +1,29 @@
+| 5 rows affected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    'i'    'INTEGER'    'NO'    'PRI'    NULL    ''  
+|    'j'    'CHAR(10)'    'YES'    ''    NULL    ''  
+|    'k'    'INTEGER'    'NO'    ''    NULL    ''  
+| 3 rows selected
+| 1 row affected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    -10  
+|    -1  
+|    1  
+|    2  
+|    3  
+|    4  
+| 6 rows selected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    -10  
+|    -1  
+|    1  
+|    2  
+|    3  
+|    4  
+| 6 rows selected
