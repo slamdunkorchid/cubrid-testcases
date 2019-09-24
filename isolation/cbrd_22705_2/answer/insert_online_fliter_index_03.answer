@@ -1,0 +1,196 @@
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    0    NULL   
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    0    NULL   
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    0    NULL   
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    0    NULL   
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	| 0 row selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    0    NULL   
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    0    NULL   
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    20    NULL  
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    20    NULL  
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    184    'a84'    'b84'  
+							      >	|    185    'a85'    'b85'  
+							      >	|    186    'a86'    'b86'  
+							      >	|    187    'a87'    'b87'  
+							      >	|    188    'a88'    'b88'  
+							      >	|    189    'a89'    'b89'  
+							      >	|    190    'a90'    'b90'  
+							      >	|    191    'a91'    'b91'  
+							      >	|    192    'a92'    'b92'  
+							      >	|    193    'a93'    'b93'  
+							      >	|    194    'a94'    'b94'  
+							      >	|    195    'a95'    'b95'  
+							      >	|    196    'a96'    'b96'  
+							      >	|    197    'a97'    'b97'  
+							      >	|    198    'a98'    'b98'  
+							      >	|    199    'a99'    'b99'  
+							      >	|    109    'a9'    'b9'  
+							      >	|    181    'a81'    'b81'  
+							      >	|    182    'a82'    'b82'  
+							      >	|    183    'a83'    'b83'  
+							      >	| 20 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    0    NULL   
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    0    NULL   
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    12    NULL  
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    12    NULL  
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    109    'a9'    'b9'  
+							      >	|    181    'a81'    'b81'  
+							      >	|    182    'a82'    'b82'  
+							      >	|    183    'a83'    'b83'  
+							      >	|    184    'a84'    'b84'  
+							      >	|    185    'a85'    'b85'  
+							      >	|    186    'a86'    'b86'  
+							      >	|    187    'a87'    'b87'  
+							      >	|    188    'a88'    'b88'  
+							      >	|    189    'a89'    'b89'  
+							      >	|    190    'a90'    'b90'  
+							      >	|    191    'a91'    'b91'  
+							      >	|    192    'a92'    'b92'  
+							      >	|    193    'a93'    'b93'  
+							      >	|    194    'a94'    'b94'  
+							      >	|    195    'a95'    'b95'  
+							      >	|    196    'a96'    'b96'  
+							      >	|    197    'a97'    'b97'  
+							      >	|    198    'a98'    'b98'  
+							      >	|    199    'a99'    'b99'  
+							      >	| 20 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    0    NULL   
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    0    NULL   
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    12    NULL  
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    12    NULL  
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    109    'a9'    'b9'  
+							      >	|    180    'a80'    'b80'  
+							      >	|    181    'a81'    'b81'  
+							      >	|    182    'a82'    'b82'  
+							      >	|    183    'a83'    'b83'  
+							      >	|    184    'a84'    'b84'  
+							      >	|    185    'a85'    'b85'  
+							      >	|    186    'a86'    'b86'  
+							      >	|    187    'a87'    'b87'  
+							      >	|    188    'a88'    'b88'  
+							      >	|    189    'a89'    'b89'  
+							      >	|    190    'a90'    'b90'  
+							      >	| 12 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    0    NULL   
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    0    NULL   
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    12    NULL  
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    12    NULL  
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    109    'a9'    'b9'  
+							      >	|    180    'a80'    'b80'  
+							      >	|    181    'a81'    'b81'  
+							      >	|    182    'a82'    'b82'  
+							      >	|    183    'a83'    'b83'  
+							      >	|    184    'a84'    'b84'  
+							      >	|    185    'a85'    'b85'  
+							      >	|    186    'a86'    'b86'  
+							      >	|    187    'a87'    'b87'  
+							      >	|    188    'a88'    'b88'  
+							      >	|    189    'a89'    'b89'  
+							      >	|    190    'a90'    'b90'  
+							      >	| 12 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    0    NULL   
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    0    NULL   
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| 100 rows affected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    't'    1    'idx1'    1    'col1'    'D'    12    NULL  
+							      >	|    't'    1    'idx1'    2    'col2'    'D'    12    NULL  
+							      >	|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL
+							      >	| 3 rows selected
+							      >	| =================   Q U E R Y   R E S U L T S   ===========
+							      >	| 
+							      >	| 
+							      >	|    109    'a9'    'b9'  
+							      >	|    180    'a80'    'b80'  
+							      >	|    181    'a81'    'b81'  
+							      >	|    182    'a82'    'b82'  
+							      >	|    183    'a83'    'b83'  
+							      >	|    184    'a84'    'b84'  
+							      >	|    185    'a85'    'b85'  
+							      >	|    186    'a86'    'b86'  
+							      >	|    187    'a87'    'b87'  
+							      >	|    188    'a88'    'b88'  
+							      >	|    189    'a89'    'b89'  
+							      >	|    190    'a90'    'b90'  
+							      >	| 12 rows selected

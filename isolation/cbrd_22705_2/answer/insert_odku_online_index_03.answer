@@ -1,0 +1,25 @@
+| 100 rows affected
+| 2 rows affected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    't'    0    'idx1'    1    'a'    'A'    100    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    0    'idx1'    2    'b'    'D'    100    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    0    'idx1'    3    'c'    'A'    100    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    0    'idx1'    4    'd'    'D'    100    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL    NULL    'NO'    'BTREE'    NULL    NULL    'YES'  
+| 5 rows selected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    't'    0    'idx1'    1    'a'    'A'    100    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    0    'idx1'    2    'b'    'D'    100    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    0    'idx1'    3    'c'    'A'    100    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    0    'idx1'    4    'd'    'D'    100    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    0    'pk_t_id'    1    'id'    'A'    100    NULL    NULL    'NO'    'BTREE'    NULL    NULL    'YES'  
+| 5 rows selected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    1010    '10        '    '10'    timestamp '06:07:57 PM 09/24/2019'    datetime '06:07:57.386 PM 09/24/2019'  
+| 1 row selected
