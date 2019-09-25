@@ -1,3 +1,0 @@
-| ERROR RETURNED: Semantic: before ' ;'
-| Partition p1 does not exist. alter class t2 drop partition p1 
-|    on statement number: 8
