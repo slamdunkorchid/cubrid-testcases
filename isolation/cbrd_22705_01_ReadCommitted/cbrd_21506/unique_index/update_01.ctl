@@ -28,7 +28,7 @@ MC: wait until C1 ready;
 C1: describe a_tbl;
 MC: wait until C1 ready;
 
-C2: create unique index i on a_tbl(id,charge) with online;
+C2: create unique index i on a_tbl(id,charge) with online with online parallel 2;
 MC: wait until C2 blocked;
 
 C3: UPDATE a_tbl INNER JOIN b_tbl ON a_tbl.id=b_tbl.rate_id SET a_tbl.charge = a_tbl.charge * (1 + b_tbl.rate) WHERE a_tbl.charge > 900.0;

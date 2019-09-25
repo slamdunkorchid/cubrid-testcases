@@ -28,7 +28,7 @@ C1: CREATE TABLE tb1(id int primary key,col varchar(10), grade int);
 C1: INSERT INTO tb1 VALUES(1,'abc',10);
 C1: INSERT INTO tb1 VALUES(2,'efg',11);
 C1: INSERT INTO tb1 VALUES(3,'hijk',12);
-C1: create unique index idx on tb1(col,grade);
+C1: create unique index idx on tb1(col,grade) with online parallel 8;
 C1: commit work;
 
 /* test case */

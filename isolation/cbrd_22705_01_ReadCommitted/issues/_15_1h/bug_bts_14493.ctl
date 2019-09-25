@@ -24,8 +24,8 @@ C1: create table t1(id int, col1 varchar(10),col2 varchar(400), primary key(id,c
 C1: create table t2(id int primary key,col1 varchar(10),col2 float,col3 varchar(400));
 C1: create index idx1_t2 on t2(col1,col2) with online parallel 2;
 C1: create table t3(id int,col1 varchar(10),col2 float,col3 varchar(400));
-C1: create unique index idx1_t3 on t3(id,col1 desc);
-C1: create unique index idx2_t3 on t3(col2 desc,col1);
+C1: create unique index idx1_t3 on t3(id,col1 desc) with online parallel 2;
+C1: create unique index idx2_t3 on t3(col2 desc,col1) with online parallel 2;
 C1: commit;
 
 C1: insert into t1 select rownum,'abcdef',null from db_class a, db_class b,db_class c limit 5000;

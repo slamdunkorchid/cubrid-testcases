@@ -41,7 +41,7 @@ C3: set transaction isolation level read committed;
 /* preparation */
 C1: DROP TABLE IF EXISTS t1;
 C1: CREATE TABLE t1(id INT PRIMARY KEY, col VARCHAR(10), tag VARCHAR(2), description VARCHAR(100));
-C1: CREATE UNIQUE INDEX idx_col on t1(col);
+C1: CREATE UNIQUE INDEX idx_col on t1(col) with online parallel 7;
 C1: CREATE INDEX idx_id_tag on t1(id, tag) with online parallel 3;
 C1: INSERT INTO t1 VALUES(1,'abc','A','hello');INSERT INTO t1 VALUES(2,'def','B','morning');INSERT INTO t1 VALUES(3,'ghi','C','good');INSERT INTO t1 VALUES(4,'jkl','D','test');INSERT INTO t1 VALUES(5,'mno','E',NULL);INSERT INTO t1 VALUES(6,'pqr','F',NULL);INSERT INTO t1 VALUES(7,'stu','G','');
 C1: COMMIT WORK;

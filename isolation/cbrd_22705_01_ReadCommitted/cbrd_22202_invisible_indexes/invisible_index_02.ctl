@@ -10,7 +10,7 @@ C2: set transaction isolation level read committed;
 C1: DROP TABLE IF EXISTS t1;
 C1: create table t1 (b int, c char(2) default 'a');
 C1: insert into t1(b,c) values (1,'a'),(2,'b'),(3,'c'),(4,'d'),(5,'e'),(6,'f');
-C1: create unique index i on t1(b);
+C1: create unique index i on t1(b) with online parallel 2;
 C1: COMMIT;
 MC: wait until C1 ready;
 

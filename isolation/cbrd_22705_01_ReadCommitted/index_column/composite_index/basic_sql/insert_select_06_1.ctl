@@ -26,7 +26,7 @@ C1: set transaction isolation level read committed;
 /* preparation */
 C1: drop table if exists t;
 C1: create table t(id int,col varchar(10));
-C1: create unique index idx on t(id,col);
+C1: create unique index idx on t(id,col) with online parallel 2;
 C1: insert into t values(1,'abc');
 C1: insert into t values(3,'abc');
 C1: insert into t values(7,'abc');

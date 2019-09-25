@@ -31,7 +31,7 @@ MC: wait until C1 ready;
 C1: describe t1;
 MC: wait until C1 ready;
 
-C2: create unique index i on t1(b) with online parallel 2;
+C2: create unique index i on t1(b) with online parallel 2 with online parallel 2;
 MC: wait until C2 blocked;
 
 C3: insert into t1(b) values(7),(8),(9);

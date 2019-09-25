@@ -45,7 +45,7 @@ C1: create table t(id int,col int);
 C1: set @newincr=0;
 C1: insert into t select (@newincr:=@newincr+1),(@newincr)+1 from db_class a,db_class b,db_class c,db_class d limit 50000;
 C1: insert into t select col,id from t;
-C1: create unique index idx on t(id,col);
+C1: create unique index idx on t(id,col) with online parallel 2;
 C1: commit work;
 MC: wait until C1 ready;
 

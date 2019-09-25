@@ -34,7 +34,7 @@ C1: insert into db_class1 select * from db_class1 limit 10;
 C1: insert into db_class1 values(1);
 C1: set @newincr=0;
 C1: insert into t select (@newincr:=@newincr+1)+1,'a','b' from db_class1 a,db_class1 b,db_class1 c,db_class1 d limit 400;
-C1: create unique index idx on t(id,col);
+C1: create unique index idx on t(id,col) with online parallel 2;
 C1: insert into t values(1,'a','c');
 MC: wait until C1 ready;
 

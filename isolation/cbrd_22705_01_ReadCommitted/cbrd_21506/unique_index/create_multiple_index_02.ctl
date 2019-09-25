@@ -26,7 +26,7 @@ MC: wait until C1 ready;
 C1: describe t1;
 MC: wait until C1 ready;
 
-C2: create unique index i on t1(a,b,c) with online;
+C2: create unique index i on t1(a,b,c) with online with online parallel 2;
 MC: wait until C2 blocked;
 
 C3: drop index i on t1;

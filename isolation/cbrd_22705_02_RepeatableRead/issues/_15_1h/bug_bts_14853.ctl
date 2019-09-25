@@ -20,7 +20,7 @@ C2: commit;
 /* preparation */
 C1: drop table if exists t;
 C1: CREATE TABLE t( col1 INT, col2 VARCHAR(10),col3 int, col4 int);
-C1: create unique index idx on t(col4,col3);
+C1: create unique index idx on t(col4,col3) with online parallel 8;
 C1: commit;
 MC: wait until C1 ready;
 C2: drop index idx on t;

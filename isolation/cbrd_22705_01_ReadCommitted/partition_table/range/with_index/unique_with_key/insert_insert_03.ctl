@@ -27,7 +27,7 @@ C1: drop table if exists t;
 C1: create table t(id int,col varchar(10),col1 varchar(10)) partition by range(id)(partition p1 values less than (5000),partition p2 values less than (10002));
 C1: set @newincr=0;
 C1: insert into t select (@newincr:=@newincr+1)+1,'a','b' from db_class a,db_class b,db_class c,db_class d limit 4000;
-C1: create unique index idx on t(id,col);
+C1: create unique index idx on t(id,col) with online parallel 2;
 C1: commit work;
 MC: wait until C1 ready;
 

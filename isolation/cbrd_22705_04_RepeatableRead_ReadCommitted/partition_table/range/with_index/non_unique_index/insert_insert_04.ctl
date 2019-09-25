@@ -21,7 +21,7 @@ C2: set transaction isolation level read committed;
 /* preparation */
 C1: drop table if exists t;
 C1: create table t(id int,col varchar(10),col1 varchar(10)) partition by range(id)(partition p1 values less than (5000),partition p2 values less than MAXVALUE);
-C1: create unique index idx on t(id,col);
+C1: create unique index idx on t(id,col) with online parallel 7;
 C1: commit work;
 MC: wait until C1 ready;
 

@@ -29,7 +29,7 @@ C1: insert into t select rownum,'a','b' from db_class a,db_class b,db_class c,db
 MC: wait until C1 ready;
 C2: insert into t select rownum+5000,'a','b' from db_class a,db_class b,db_class c,db_class d where rownum <= 4000;
 MC: wait until C2 blocked;
-C1: create unique index idx on t(id,col);
+C1: create unique index idx on t(id,col) with online parallel 7;
 C1: commit work;
 MC: wait until C1 ready;
 MC: wait until C2 ready;

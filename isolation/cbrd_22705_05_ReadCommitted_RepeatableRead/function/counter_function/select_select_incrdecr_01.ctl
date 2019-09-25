@@ -42,7 +42,7 @@ C3: set transaction isolation level repeatable read;
 /* preparation */
 C1: DROP TABLE IF EXISTS t1;
 C1: CREATE TABLE t1(id INT UNIQUE, title VARCHAR(10), read_count INT);
-C1: CREATE UNIQUE INDEX idx_id on t1(id);
+C1: CREATE UNIQUE INDEX idx_id on t1(id) with online parallel 2;
 C1: INSERT INTO t1 VALUES(1,'book1',1);INSERT INTO t1 VALUES(2,'book2',2);INSERT INTO t1 VALUES(3,'book3',3);INSERT INTO t1 VALUES(4,'book4',4);INSERT INTO t1 VALUES(5,'book5',5);INSERT INTO t1 VALUES(6,'book6',6);INSERT INTO t1 VALUES(7,'book7',0);
 C1: COMMIT WORK;
 MC: wait until C1 ready;

@@ -26,7 +26,7 @@ C1: CREATE TABLE tb1(id INT , grade INT,email VARCHAR(20), addr varchar(50));
 C1: INSERT INTO tb1 VALUES(1,10,'mike@nnn.com','abc');
 C1: CREATE TABLE tb2(id INT primary key, name varchar(20), grade INT,email VARCHAR(20), addr varchar(50));
 C1: INSERT INTO tb2 VALUES(1,'tom',10,'mike@nnn.com','efg');
-C1: create unique index idx on tb2(id,name);
+C1: create unique index idx on tb2(id,name) with online parallel 2;
 C1: commit;
 MC: wait until C1 ready;
 

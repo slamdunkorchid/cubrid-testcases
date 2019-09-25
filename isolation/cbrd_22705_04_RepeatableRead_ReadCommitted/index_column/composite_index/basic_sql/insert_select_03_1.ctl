@@ -32,7 +32,7 @@ C2: set transaction isolation level read committed;
 C1: drop table if exists t;
 C1: create table t(id int,col int);
 C1: insert into t select rownum%100,rownum from db_class a,db_class b where rownum <= 500;
-C1: create unique index idx on t(id,col);
+C1: create unique index idx on t(id,col) with online parallel 7;
 C1: commit work;
 MC: wait until C1 ready;
 

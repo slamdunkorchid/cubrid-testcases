@@ -25,7 +25,7 @@ C1: create table t(id int,col varchar(10),col1 varchar(10)) partition by range(i
 C1: insert into t select rownum,'a','b' from db_class a,db_class b,db_class c,db_class d where rownum <= 4000;
 C1: insert into t select rownum+5000,'a','b' from db_class a,db_class b,db_class c,db_class d where rownum <= 4000;
 C1: commit;
-C1: create unique index idx on t(id,col,col1);
+C1: create unique index idx on t(id,col,col1) with online parallel 7;
 C1: commit work;
 MC: wait until C1 ready;
 

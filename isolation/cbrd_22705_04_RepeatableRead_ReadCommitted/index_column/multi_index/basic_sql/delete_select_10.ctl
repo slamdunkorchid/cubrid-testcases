@@ -27,7 +27,7 @@ C1: DROP TABLE IF EXISTS tb1;
 C1: CREATE TABLE tb1( id INT, col VARCHAR(10));
 C1: INSERT INTO tb1 SELECT rownum,mod(rownum,100) FROM db_class a,db_class b where rownum<=500;
 C1: UPDATE tb1 SET col=NULL WHERE mod(CAST(col AS INT),100)=95;
-C1: CREATE UNIQUE INDEX idx_1 ON tb1(id);
+C1: CREATE UNIQUE INDEX idx_1 ON tb1(id) with online parallel 7;
 C1: CREATE INDEX idx_2 ON tb1(col) with online parallel 3;
 C1: commit work;
 MC: wait until C1 ready;

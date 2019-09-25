@@ -41,7 +41,7 @@ C6: set transaction isolation level read committed;
 /* preparation */
 C1: drop table if exists t;
 C1: create table t(id bigint primary key,col varchar(10));
-C1: create unique index idx on t(id);
+C1: create unique index idx on t(id) with online parallel 2;
 C1: create index idx_col on t(col) with online parallel 2;
 C1: set @newincr=0;
 C1: insert into t select (@newincr:=@newincr+1),(@newincr)%10 from db_class a,db_class b,db_class c limit 10000;

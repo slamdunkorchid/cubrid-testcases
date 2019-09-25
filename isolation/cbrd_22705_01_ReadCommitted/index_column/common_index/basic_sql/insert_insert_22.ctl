@@ -26,7 +26,7 @@ C2: set transaction isolation level read committed;
 /* preparation */
 C1: drop table if exists t;
 C1: create table t(id int  AUTO_INCREMENT,col varchar(10));
-C1: create unique index idx on t(id);
+C1: create unique index idx on t(id) with online parallel 2;
 C1: commit work;
 MC: wait until C1 ready;
 

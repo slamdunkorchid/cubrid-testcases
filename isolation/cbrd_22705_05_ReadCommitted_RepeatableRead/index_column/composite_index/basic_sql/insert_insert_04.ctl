@@ -28,7 +28,7 @@ C2: set transaction isolation level repeatable read;
 /* preparation */
 C1: drop table if exists t;
 C1: create table t(id int,col varchar(10));
-C1: create unique index idx on t(id,col);
+C1: create unique index idx on t(id,col) with online parallel 2;
 C1: insert into t(id, col) values(1,'b');
 C1: insert into t(id, col) values(2,'b');
 C1: insert into t(id, col) values(3,'b');

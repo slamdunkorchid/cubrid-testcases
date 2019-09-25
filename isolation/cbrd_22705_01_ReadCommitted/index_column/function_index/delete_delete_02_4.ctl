@@ -39,7 +39,7 @@ C1: DROP TABLE IF EXISTS t1;
 C1: CREATE TABLE t1(id INT UNIQUE, col VARCHAR(10), tag DATE);
 C1: INSERT INTO t1 VALUES(1,'abc','2010-03-02'),(2,'def','2012-08-13'),(3,'ghi','2014-01-02'),(4,'jkl','2012-03-28'),(5,'mno','2014-01-02'),(6,'pqr','2010-12-11'),(7,'abc','2012-03-05');
 C1: CREATE INDEX idx_tag_month on t1(MONTH(tag)) with online parallel 2;
-C1: CREATE UNIQUE INDEX idx_id on t1(id);
+C1: CREATE UNIQUE INDEX idx_id on t1(id) with online parallel 2;
 C1: COMMIT WORK;
 MC: wait until C1 ready;
 

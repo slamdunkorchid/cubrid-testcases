@@ -26,7 +26,7 @@ C1: set @newincr=0;
 C1: insert into t select (@newincr:=@newincr+1),'a','b' from db_class a,db_class b,db_class c,db_class d limit 4000;
 C1: set @newincr=0;
 C1: insert into t select (@newincr:=@newincr+1)+5000,'a','b' from db_class a,db_class b,db_class c,db_class d limit 4000;
-C1: create unique index idx on t(id,col);
+C1: create unique index idx on t(id,col) with online parallel 2;
 C1: commit work;
 MC: wait until C1 ready;
 

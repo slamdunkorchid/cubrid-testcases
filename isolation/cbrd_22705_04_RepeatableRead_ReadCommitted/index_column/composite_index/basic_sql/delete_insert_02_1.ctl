@@ -29,7 +29,7 @@ C3: set transaction isolation level read committed;
 /* preparation */
 C1: DROP TABLE IF EXISTS t1;
 C1: CREATE TABLE t1(id INT, col VARCHAR(10));
-C1: create unique index idx on t1(id,col);
+C1: create unique index idx on t1(id,col) with online parallel 7;
 C1: INSERT INTO t1 VALUES(1,'abc');INSERT INTO t1 VALUES(2,'def');INSERT INTO t1 VALUES(3,'ghi');INSERT INTO t1 VALUES(4,'jkl');INSERT INTO t1 VALUES(5,'mno');INSERT INTO t1 VALUES(5,'pqr');INSERT INTO t1 VALUES(7,'stu');
 C1: COMMIT WORK;
 MC: wait until C1 ready;

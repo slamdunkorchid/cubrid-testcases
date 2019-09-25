@@ -30,7 +30,7 @@ C1: DROP TABLE IF EXISTS tb_with_alotof_columns_with_diff_type;
 C1: CREATE TABLE tb1( id INT primary key, col VARCHAR(10));
 C1: CREATE TABLE tb2( id INT, col VARCHAR(10));
 C1: create table tb_with_alotof_columns_with_diff_type(id int, name varchar(20), hire_date datetime, salary float,departno smallint,total bigint);
-C1: create unique index tb_id_hire_date on tb_with_alotof_columns_with_diff_type(id,hire_date);
+C1: create unique index tb_id_hire_date on tb_with_alotof_columns_with_diff_type(id,hire_date) with online parallel 2;
 C1: commit;
 MC: wait until C1 ready;
 

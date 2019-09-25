@@ -26,7 +26,7 @@ C1: CREATE TABLE tb1(id INT primary key,col VARCHAR(10));
 C1: commit;
 
 /* test case */
-C1: create unique index idx on tb1(col);
+C1: create unique index idx on tb1(col) with online parallel 2;
 MC: wait until C1 ready;
 C2: create table tb2 (t1_id int not null,col varchar(10));
 C2: alter table tb2 add constraint tb1_id foreign key (t1_id) references tb1 (id);
@@ -44,7 +44,7 @@ MC: wait until C3 ready;
 MC: sleep 1;
 
 /* add same index on same table */
-C1: create unique index idx on tb2(col);
+C1: create unique index idx on tb2(col) with online parallel 2;
 MC: wait until C1 ready;
 C2: alter table tb2 add constraint pk_tb2_id_col primary key (t1_id,col);
 MC: wait until C2 blocked;

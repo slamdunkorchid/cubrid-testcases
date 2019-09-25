@@ -38,7 +38,7 @@ C3: set transaction isolation level read committed;
 C1: DROP TABLE IF EXISTS t1;
 C1: CREATE TABLE t1(id INT UNIQUE, col VARCHAR(10), tag VARCHAR(2));
 C1: INSERT INTO t1 VALUES(1,'a ','A'),(2,' a','B'),(3,'cc ','C'),(4,'c c','D'),(5,'eee','E'),(6,' eee ','F'),(7,'eee  ','G');
-C1: CREATE UNIQUE INDEX idx_id on t1(id);
+C1: CREATE UNIQUE INDEX idx_id on t1(id) with online parallel 2;
 C1: CREATE INDEX idx_col_trim on t1(TRIM(col)) with online parallel 2;
 C1: COMMIT WORK;
 MC: wait until C1 ready;

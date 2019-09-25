@@ -25,7 +25,7 @@ C2: set transaction isolation level repeatable read;
 /* preparation */
 C1: drop table if exists t;
 C1: create table t(id int ,col int);
-C1: create unique index idx on t(id);
+C1: create unique index idx on t(id) with online parallel 8;
 C1: insert into t select rownum,rownum%1500 from db_class a,db_class b limit 3000;
 C1: create index idx_col on t(col) with online parallel 3;
 C1: commit work;

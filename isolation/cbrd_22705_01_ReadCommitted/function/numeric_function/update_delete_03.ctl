@@ -42,7 +42,7 @@ C3: set transaction isolation level read committed;
 /* preparation */
 C1: DROP TABLE IF EXISTS t1;
 C1: CREATE TABLE t1(id INT UNIQUE, title VARCHAR(10), status INT);
-C1: CREATE UNIQUE INDEX idx_id on t1(id);
+C1: CREATE UNIQUE INDEX idx_id on t1(id) with online parallel 2;
 C1: CREATE INDEX idx_status_abs on t1(ABS(status)) with online parallel 2;
 C1: INSERT INTO t1 VALUES(1,'book1',-3),(2,'book2',5),(3,'book3',-1),(4,'book4',1),(5,'book5',-3),(6,'book6',1),(7,'book7',-1);
 C1: COMMIT WORK;
