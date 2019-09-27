@@ -1,7 +1,3 @@
-/*
-CBRD-23326
-*/
-
 
 /* 
 Test Case: insert & update

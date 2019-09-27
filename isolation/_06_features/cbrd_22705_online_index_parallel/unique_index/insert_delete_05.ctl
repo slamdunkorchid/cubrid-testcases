@@ -1,9 +1,3 @@
-/*
-
-CBRD-23326
-
-*/
-
 
 /* 
 Test Case: insert & delete

@@ -1,7 +1,7 @@
 /* 
-Test Case: prepare & delete
-prepare statement to delete duplicate data and commit while loading index with online;
-create unique index should be success.
+Test Case: update
+update duplicate data and commit while loading index with oline;
+create index should be fail.
 */
 
 MC: setup NUM_CLIENTS = 3;
@@ -17,14 +17,10 @@ C3: set transaction isolation level read committed;
 
 /* preparation */
 C1: DROP TABLE IF EXISTS t1;
-C1: create table t1 (a int auto_increment, b int, c char(250));
-C1: insert into t1(b,c) values (1,'a'),(2,'b'),(2,'b'),(3,'c'),(4,'d'),(5,'e'),(6,'f');
+C1: create table t1 (a int primary key auto_increment, b int, c char(250));
+C1: insert into t1(b,c) values (1,'a'),(2,'b'),(3,'c'),(4,'d'),(5,'e'),(6,'f');
 C1: COMMIT;
 MC: wait until C1 ready;
-
-C3: prepare st1 from 'delete from t1 where b=?';
-C3: COMMIT;
-MC: wait until C3 ready;
 
 /* transaction mix */
 
@@ -32,10 +28,10 @@ MC: wait until C3 ready;
 C1: describe t1;
 MC: wait until C1 ready;
 
-C2: create unique index i on t1(b,c) with online parallel 2;
+C2: create index i on t1(b,c) with online parallel 3;
 MC: wait until C2 blocked;
 
-C3: execute st1 using 2;
+C3: update t1 set b=1,c='a';
 MC: wait until C3 blocked;
 
 C1: commit;

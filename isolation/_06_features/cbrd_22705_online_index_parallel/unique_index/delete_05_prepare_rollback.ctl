@@ -1,7 +1,3 @@
-/*
-CBRD-23322
-*/
-
 /* 
 Test Case: prepare & delete
 prepare statement to delete duplicate data and rollback while loading index with online;

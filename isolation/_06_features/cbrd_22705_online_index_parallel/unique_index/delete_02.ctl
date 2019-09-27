@@ -1,7 +1,3 @@
-/*
-execution failed: CBRD-23322
-/
-
 
 /* 
 Test Case: delete

@@ -1,7 +1,7 @@
 /* 
-Test Case: prepare & delete
-prepare statement to delete duplicate data and commit while loading index with online;
-create unique index should be success.
+Test Case: update
+update and commit while loading index with oline;
+create index should be success.
 */
 
 MC: setup NUM_CLIENTS = 3;
@@ -16,26 +16,22 @@ C3: set transaction lock timeout INFINITE;
 C3: set transaction isolation level read committed;
 
 /* preparation */
-C1: DROP TABLE IF EXISTS t1;
-C1: create table t1 (a int auto_increment, b int, c char(250));
-C1: insert into t1(b,c) values (1,'a'),(2,'b'),(2,'b'),(3,'c'),(4,'d'),(5,'e'),(6,'f');
+C1: DROP TABLE IF EXISTS a_tbl;DROP TABLE IF EXISTS b_tbl;
+C1: CREATE TABLE a_tbl(id INT PRIMARY KEY, charge DOUBLE);CREATE TABLE b_tbl(rate_id INT, rate DOUBLE);
+C1: INSERT INTO a_tbl VALUES (1, 100.0), (2, 1000.0), (3, 10000.0);INSERT INTO b_tbl VALUES (1, 0.1), (2, 0.0), (3, 0.2), (3, 0.5);
 C1: COMMIT;
 MC: wait until C1 ready;
-
-C3: prepare st1 from 'delete from t1 where b=?';
-C3: COMMIT;
-MC: wait until C3 ready;
 
 /* transaction mix */
 
 /* This dummy "describe" is important to guarantee that online index build does not complete before other transaction starts and others have chances before index build completes */
-C1: describe t1;
+C1: describe a_tbl;
 MC: wait until C1 ready;
 
-C2: create unique index i on t1(b,c) with online parallel 2;
+C2: create index i on a_tbl(id,charge) with online parallel 2;
 MC: wait until C2 blocked;
 
-C3: execute st1 using 2;
+C3: UPDATE a_tbl INNER JOIN b_tbl ON a_tbl.id=b_tbl.rate_id SET a_tbl.charge = a_tbl.charge * (1 + b_tbl.rate) WHERE a_tbl.charge > 900.0;
 MC: wait until C3 blocked;
 
 C1: commit;
@@ -57,15 +53,17 @@ C2: commit;
 MC: wait until C2 ready;
 
 /* verification */
-C1: select sum(set{b}) into :s from t1 ignore index (i) where b > -999 order by 1;
-C1: select sum(set{b}) into :i from t1 force index (i) where b > -999 order by 1;
+C1: select sum(set{id}) into :s from a_tbl ignore index (i) where id > -999 order by 1;
+C1: select sum(set{id}) into :i from a_tbl force index (i) where id > -999 order by 1;
 C1: select if (:s = :i, 'OK', 'NOK');
-C1: show index from t1;
-C1: select * from t1 order by 1;
+C1: select sum(set{charge}) into :s2 from a_tbl ignore index (i) where id > -999 order by 1;
+C1: select sum(set{charge}) into :i2 from a_tbl force index (i) where id > -999 order by 1;
+C1: select if (:s2 = :i2, 'OK', 'NOK');
+C1: show index from a_tbl;
 MC: wait until C1 ready;
 
 /* exit */
-C1: DROP table t1;
+C1: DROP table a_tbl;DROP table b_tbl;
 C1: commit;
 
 C1: quit;

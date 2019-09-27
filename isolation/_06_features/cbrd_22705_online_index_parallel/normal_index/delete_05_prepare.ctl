@@ -1,7 +1,11 @@
+/*
+execution failed: CBRD-23322
+/
+
 /* 
 Test Case: prepare & delete
 prepare statement to delete duplicate data and commit while loading index with online;
-create unique index should be success.
+create index should be success.
 */
 
 MC: setup NUM_CLIENTS = 3;
@@ -32,7 +36,7 @@ MC: wait until C3 ready;
 C1: describe t1;
 MC: wait until C1 ready;
 
-C2: create unique index i on t1(b,c) with online parallel 2;
+C2: create index i on t1(b,c) with online parallel 2;
 MC: wait until C2 blocked;
 
 C3: execute st1 using 2;

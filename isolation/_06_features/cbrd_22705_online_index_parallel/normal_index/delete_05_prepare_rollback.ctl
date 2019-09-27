@@ -1,7 +1,11 @@
+/*
+CBRD-23322
+*/
+
 /* 
 Test Case: prepare & delete
-prepare statement to delete duplicate data and commit while loading index with online;
-create unique index should be success.
+prepare statement to delete duplicate data and rollback while loading index with online;
+create index should be fail.
 */
 
 MC: setup NUM_CLIENTS = 3;
@@ -32,7 +36,7 @@ MC: wait until C3 ready;
 C1: describe t1;
 MC: wait until C1 ready;
 
-C2: create unique index i on t1(b,c) with online parallel 2;
+C2: create index i on t1(b,c) with online parallel 2;
 MC: wait until C2 blocked;
 
 C3: execute st1 using 2;
@@ -48,7 +52,7 @@ MC: wait until C3 ready;
 /* C2 should be blocked to promote to SCH_M */
 MC: wait until C2 blocked;
 
-C3: commit;
+C3: rollback;
 MC: wait until C3 ready;
 
 MC: wait until C2 ready;
