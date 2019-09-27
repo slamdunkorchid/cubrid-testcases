@@ -20,9 +20,8 @@ C2: set transaction isolation level repeatable read;
 /* preparation */
 C1: drop table if exists t;
 C1: create table t(id int, col varchar(10)) partition by range(id)(partition p1 values less than (10000),partition p2 values less than MAXVALUE);
-C1: create index idx on t(id) with online parallel 3;
 C1: insert into t select rownum,'a' from db_class a,db_class b,db_class c,db_class d where rownum <= 10000;
-MC: sleep 7;
+C1: create index idx on t(id) with online parallel 3;
 C1: commit work;
 MC: wait until C1 ready;
 

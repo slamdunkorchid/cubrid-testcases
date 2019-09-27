@@ -18,5 +18,12 @@
 | =================   Q U E R Y   R E S U L T S   =================
 | 
 | 
+|    't'    1    'idx'    1    'id'    'A'    2    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    1    'idx2'    1    'id'    'A'    1    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    1    'idx2'    2    'col'    'A'    1    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+| 3 rows selected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
 |    12    'edf'  
 | 1 row selected

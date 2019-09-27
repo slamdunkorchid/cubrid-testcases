@@ -1,0 +1,9 @@
+Testing /home/zll/cubrid-testcases/isolation/_06_features/cbrd_22705_online_index_parallel/cbrd_22705_01_ReadCommitted/cbrd_22202_invisible_indexes/invisible_index_03.ctl (retry count: 0)
+elapse: 617
+flag: OK
+dbtype: qacsql
+
+This may take a long time depending on the amount of recovery works to do.
+
+CUBRID 10.2 (10.2.0.8465) (64 debug build)
+

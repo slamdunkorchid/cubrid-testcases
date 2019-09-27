@@ -12,3 +12,9 @@
 | 
 |    5000  
 | 1 row selected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    't'    1    'idx'    1    'id'    'A'    5000    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't'    1    'idx'    2    'col'    'A'    5000    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+| 2 rows selected

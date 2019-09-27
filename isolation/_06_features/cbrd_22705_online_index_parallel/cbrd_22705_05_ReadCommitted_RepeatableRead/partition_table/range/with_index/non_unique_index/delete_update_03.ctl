@@ -15,13 +15,20 @@ C1: UPDATE t SET id=11 where id=1;
 C2: DELETE FROM t WHERE id=1; --expected blocked
 */
 
-MC: setup NUM_CLIENTS = 2;
+MC: setup NUM_CLIENTS = 4;
 
 C1: set transaction lock timeout INFINITE;
 C1: set transaction isolation level read committed;
 
 C2: set transaction lock timeout INFINITE;
 C2: set transaction isolation level repeatable read;
+
+C3: set transaction lock timeout INFINITE;
+C3: set transaction isolation level repeatable read;
+
+C4: set transaction lock timeout INFINITE;
+C4: set transaction isolation level repeatable read;
+
 
 /* preparation */
 C1: DROP TABLE IF EXISTS t;
@@ -31,21 +38,42 @@ C1: INSERT INTO t VALUES(1,'abc');INSERT INTO t VALUES(12,'edf');
 C1: COMMIT WORK;
 MC: wait until C1 ready;
 
+C1: describe t;
+MC: wait until C1 ready;
+
+C2: create index idx1 on t(id desc,col desc) with online parallel 2;
+MC: wait until C2 blocked;
+
 /* test case */
-C2: select * from t order by 1;
-MC: wait until C2 ready;
+C3: select * from t order by 1;
+MC: wait until C3 blocked;
+
 C1: DELETE FROM t WHERE id=1;
 MC: wait until C1 ready;
 
-C2: UPDATE t SET id=1 where id=12;
-MC: wait until C2 ready;
+C4: UPDATE t SET id=1 where id=12;
+MC: wait until C4 blocked;
+
 C1: commit;
 MC: wait until C1 ready;
+MC: wait until C2 unblocked;
 
-/* expect (1,'abc'), (1,'edf') */
-C2: select * from t order by 1;
-C2: commit;
+
+MC: wait until C3 ready;
+MC: wait until C4 ready;
+
+/* expect (1,'edf') */
+C4: select * from t order by 1;
+C4: commit;
 MC: wait until C2 ready;
+
+C3: commit;
+MC: wait until C3 ready;
+
+C2: show index from t;
+C2: commit;
 
 C1: quit;
 C2: quit;
+C3: quit;
+C4: quit;

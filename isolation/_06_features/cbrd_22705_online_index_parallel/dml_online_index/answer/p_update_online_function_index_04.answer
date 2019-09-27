@@ -1,0 +1,46 @@
+| 4 rows affected
+| 7 rows affected
+| 1 row affected
+| 1 row affected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    't2'    1    'fk_t2_stu_id'    1    'stu_id'    'A'    5    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't2'    1    'idx_t2_3'    1    NULL    'A'    4    NULL    NULL    'YES'    'BTREE'    ' to_datetime_tz( cast([t2].[col] as varchar))'    NULL    'YES'  
+|    't2'    1    'idx_t2_3'    2    'col'    'A'    4    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+| 3 rows selected
+| Join graph segments (f indicates final):
+| seg[0]: [0]
+| seg[1]: class_id[0] (f)
+| seg[2]: class_name[0] (f)
+| seg[3]: stu_id[0] (f)
+| seg[4]: col[0] (f)
+| seg[5]:  to_datetime_tz( cast([t2].[col] as varchar))[0]
+| Join graph nodes:
+| node[0]: t2 t2(7/708) (sargs 0) (loc 0)
+| Join graph terms:
+| term[0]:  to_datetime_tz( cast(t2.col as varchar))>= cast('2000-12-1 14:00:00' as datetimetz) (sel 0.1) (rank 3) (sarg term) (not-join eligible) (indexable  to_datetime_tz( cast([t2].[col] as varchar))[0]) (loc 0)
+| 
+| Query plan:
+| 
+| temp(order by)
+|     subplan: iscan
+|                  class: t2 node[0]
+|                  index: idx_t2_3 term[0]
+|                  cost:  72 card 1
+|     sort:  1 desc
+|     cost:  78 card 1
+| 
+| Query stmt:
+| 
+| select t2.class_id, t2.class_name, t2.stu_id, t2.col from t2 t2 where  to_datetime_tz( cast(t2.col as varchar))>= cast('2000-12-1 14:00:00' as datetimetz) order by 1 desc 
+| 
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    4    'art'    -8    timestamp '02:00:00 PM 12/01/2000'  
+|    3    'history'    -16    timestamp '03:00:00 PM 12/01/2000'  
+|    2    'english'    4    timestamp '02:00:00 PM 12/01/2000'  
+|    1    'math'    4    timestamp '02:00:00 PM 12/01/2000'  
+|    1    'math'    8    timestamp '02:00:00 PM 12/01/2000'  
+| 5 rows selected

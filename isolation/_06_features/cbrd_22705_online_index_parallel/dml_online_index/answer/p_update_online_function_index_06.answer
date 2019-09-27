@@ -1,0 +1,48 @@
+| 4 rows affected
+| 7 rows affected
+| 1 row affected
+| 1 row affected
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    't2'    1    'fk_t2_stu_id'    1    'stu_id'    'A'    5    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+|    't2'    1    'idx_t2_3'    1    NULL    'A'    4    NULL    NULL    'YES'    'BTREE'    ' to_time([t2].[col1])'    NULL    'YES'  
+|    't2'    1    'idx_t2_3'    2    'col1'    'A'    4    NULL    NULL    'YES'    'BTREE'    NULL    NULL    'YES'  
+| 3 rows selected
+| Join graph segments (f indicates final):
+| seg[0]: [0]
+| seg[1]: col1[0] (f)
+| seg[2]: class_id[0] (f)
+| seg[3]: class_name[0] (f)
+| seg[4]: stu_id[0] (f)
+| seg[5]:  to_time([t2].[col1])[0]
+| Join graph nodes:
+| node[0]: t2 t2(8/708) (sargs 0) (loc 0)
+| Join graph terms:
+| term[0]:  to_time(t2.col1)>= cast('09:00:00' as time) (sel 0.1) (rank 3) (sarg term) (not-join eligible) (indexable  to_time([t2].[col1])[0]) (loc 0)
+| 
+| Query plan:
+| 
+| temp(order by)
+|     subplan: iscan
+|                  class: t2 node[0]
+|                  index: idx_t2_3 term[0]
+|                  cost:  63 card 1
+|     sort:  1 desc
+|     cost:  69 card 1
+| 
+| Query stmt:
+| 
+| select t2.col1, t2.class_id, t2.class_name, t2.stu_id from t2 t2 where  to_time(t2.col1)>= cast('09:00:00' as time) order by 1 desc 
+| 
+| =================   Q U E R Y   R E S U L T S   =================
+| 
+| 
+|    '10:00:00'    2    'english'    1  
+|    '10:00:00'    3    'history'    1  
+|    '10:00:00'    3    'history'    -16  
+|    '10:00:00'    1    'math'    4  
+|    '10:00:00'    2    'english'    4  
+|    '10:00:00'    4    'art'    -8  
+|    '10:00:00'    1    'math'    8  
+| 7 rows selected

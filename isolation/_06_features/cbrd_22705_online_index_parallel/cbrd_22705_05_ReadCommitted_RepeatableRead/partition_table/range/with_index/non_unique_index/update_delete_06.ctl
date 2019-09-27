@@ -27,6 +27,8 @@ C3: set transaction isolation level repeatable read;
 /* preparation */
 C1: DROP TABLE IF EXISTS t;
 C1: create table t(id int,col varchar(10)) partition by range(id)(partition p1 values less than (10),partition p2 values less than (100));
+C1: INSERT INTO t VALUES(0,' ');
+C1: INSERT INTO t VALUES(1,'null');
 C1: create index idx on t(id) with online parallel 3;
 C1: INSERT INTO t VALUES(1,'a');
 C1: INSERT INTO t VALUES(20,'b');
@@ -35,6 +37,7 @@ C1: INSERT INTO t VALUES(40,'d');
 C1: INSERT INTO t VALUES(50,'a');
 C1: INSERT INTO t VALUES(6,'b');
 C1: INSERT INTO t VALUES(7,'c');
+C1: INSERT INTO t VALUES(99,'a');
 C1: COMMIT WORK;
 MC: wait until C1 ready;
 
