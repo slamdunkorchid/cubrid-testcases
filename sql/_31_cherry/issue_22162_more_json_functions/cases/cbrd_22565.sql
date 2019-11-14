@@ -10,7 +10,7 @@ INSERT INTO tree VALUES (6,2,'Foster',2);
 INSERT INTO tree VALUES (7,6,'Brown',1);
 
 --test: system error for below query:
-select  json_objectagg(id,mgrid) from tree connect by prior id=mgrid ORDER SIBLINGS BY sort,id;
+select  json_objectagg(id,mgrid) from (select * from tree connect by prior id=mgrid ORDER SIBLINGS BY sort,id)x;
 
 select id,mgrid from tree connect by prior id=mgrid ORDER SIBLINGS BY sort,id;
 
